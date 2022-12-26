@@ -1,4 +1,5 @@
 import { Divider, VStack } from '@chakra-ui/react';
+import { FetchTodos } from './components/FetchTodos';
 import { Filter } from './components/Filter';
 import { NewTodo } from './components/NewTodo';
 import { TodoList } from './components/TodoList';
@@ -12,6 +13,7 @@ function App() {
       <Divider />
       <TotalTodos />
       <NewTodo />
+      <FetchTodos />
     </VStack>
   );
 }
