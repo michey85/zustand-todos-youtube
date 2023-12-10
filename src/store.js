@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import create from 'zustand';
+import { create } from 'zustand';
 import { persist, devtools } from 'zustand/middleware'
 
 export const useTodos = create(devtools(persist((set, get) => ({
@@ -9,14 +9,9 @@ export const useTodos = create(devtools(persist((set, get) => ({
   ],
   loading: false,
   error: null,
-  // addTodo: (title) => set(state => {
-  //   const newTodo = { id: nanoid(), title, completed: false }
-
-  //   return { todos: [...state.todos, newTodo] }
-  // })
-  // addTodo: (title) => set(state => ({ todos: [...state.todos, { id: nanoid(), title, completed: false }] }))
   addTodo: (title) => {
-    const newTodo = { id: nanoid(), title, completed: false }
+    const newTodo = { id: nanoid(), title, completed: false } //=>
+    //                                        ^?
 
     set({ todos: [...get().todos, newTodo] })
   },
@@ -42,7 +37,7 @@ export const useTodos = create(devtools(persist((set, get) => ({
       set({ loading: false })
     }
   }
-}))))
+}), { name: 'todos' })))
 
 export const useFilter = create(set => ({
   filter: 'all',
