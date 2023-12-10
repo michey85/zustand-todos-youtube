@@ -6,7 +6,11 @@ const Filter = () => {
 
   return (
     <Stack spacing={2} direction="row" mt="8">
-      <Button disabled={filter === 'all'} onClick={() => setFilter('all')}>
+      <Button
+        disabled={filter === 'all'}
+        onClick={() => setFilter('all')}
+        colorScheme="blue"
+      >
         All
       </Button>
       <Button
